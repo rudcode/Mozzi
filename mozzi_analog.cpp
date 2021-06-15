@@ -75,7 +75,7 @@ void setupMozziADC(int8_t speed) {
 #elif IS_STM32()
 	adc.calibrate();
 	setupFastAnalogRead(speed);
-	adc.attachInterrupt(stm32_adc_eoc_handler, ADC_EOC);
+	adc.attachInterrupt(stm32_adc_eoc_handler);
 #elif IS_AVR()
 	ADCSRA |= (1 << ADIE); // adc Enable Interrupt
 	setupFastAnalogRead(speed);
